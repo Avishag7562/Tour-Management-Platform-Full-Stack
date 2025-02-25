@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "L+gqk6TQBt1SpCefQuCm6covGum+m25Qm003A4CgXZMWDGuM0/rckODGgreWFr5WncBxyD7bRurG2EzEvOHSUQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Avishag\\OneDrive\\מסמכים\\web api\\פרויקט WEB\\webProject\\BLL\\BLL.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Avishag\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\Avishag\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
+    "C:\\Users\\Avishag\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\Avishag\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Avishag\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\Avishag\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\Avishag\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
