@@ -1,0 +1,55 @@
+personal-info.component.html
+<h2>Edit Personal Info</h2>
+
+<app-register [update]="true"></app-register>
+
+<button class="b" (click)="loadUserTrips()">הטיולים שלי</button>
+<button  (click)="cancelReservation(userSer.currentUser.CodeUser!)">להסרה מהאתר</button>
+
+
+<!-- flip-card-container -->
+<section *ngIf="showTrips" >
+
+    <div *ngFor="let trip of lTrip"
+     class="flip-card-container" style="--hue: 220">
+    <div class="flip-card">
+  
+      <!-- <div *ngIf="trip.CodeType == CodeChoose || CodeChoose == -1" (click)="filterByType(trip.CodeTrip!)" -->
+      <div *ngIf="trip.CodeType == CodeChoose || CodeChoose == -1">
+
+       class="card-front">
+        <figure>
+          <div class="img-bg"></div>
+          <!-- <img src="../../../assets/images/b.jpg" alt="Brohm Lake"> -->
+          <h2 style="color: white;">{{trip.Destination}}</h2>
+          <p style="color:white;">{{trip.DateTrip}}</p>
+        </figure>
+
+      </div>
+  
+      <div class="card-back">
+        <figure>
+          <div class="img-bg"></div>
+          <!-- <img src="../../../assets/images/b.jpg" alt="Brohm Lake"> -->
+        </figure>
+  
+        <button (click)="showDetails(trip!)">Book</button>
+        <!-- <button routerLink="./detailes/{{trip.CodeTrip}}">Book</button> -->
+
+
+        <div class="design-container">
+          <span class="design design--1"></span>
+          <span class="design design--2"></span>
+          <span class="design design--3"></span>
+          <span class="design design--4"></span>
+          <span class="design design--5"></span>
+          <span class="design design--6"></span>
+          <span class="design design--7"></span>
+          <span class="design design--8"></span>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+ </section>
+     

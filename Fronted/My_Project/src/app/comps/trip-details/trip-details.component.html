@@ -1,0 +1,33 @@
+<!-- trip-details.component.html -->
+<div class="trip-details-container">
+  <div class="trip-details">
+    <h2>code trip: {{ tripSer.userChoose.CodeTrip }}</h2>
+
+    <p>Destination: {{ tripSer.userChoose.Destination}}</p>
+
+    <p>DateTrip: {{ tripSer.userChoose.DateTrip}}</p>
+
+    <p>TripHours:  {{ tripSer.userChoose.TripHours}}</p>
+
+    <p>AvailablePlaces: {{ tripSer.userChoose.AvailablePlaces}}</p>
+
+    <p>Price: {{ tripSer.userChoose.Price}}</p>
+
+   
+     <button (click)="open()" >Book Now</button>
+  </div>
+
+<!-- דיב הזמנת מקומות -->
+<div *ngIf="showBookingDialog">
+  <input type="number" [(ngModel)]="bookingPlace" #input="ngModel"
+    required pattern="[0-9]{1,100}" max ="tripSer.userChoose.AvailablePlaces"/>
+    <div  *ngIf="input.invalid && (input.dirty || input.touched)">
+      <p *ngIf="input.errors!['required']">שדה חובה</p>
+      <p *ngIf="input.errors!['pattern']">הכנס מספר תקין</p>
+      <p *ngIf="input.errors!['max']">לא נותרו מקומות</p>
+    </div>
+    <button [disabled]="input.invalid" (click)="confirmBooking(tripSer.userChoose)">אישור</button>
+    <button (click)="closeBookingDialog()">ביטול</button>
+</div>
+
+</div>

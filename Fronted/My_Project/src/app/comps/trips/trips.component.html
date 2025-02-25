@@ -1,0 +1,79 @@
+<h1 class="t">Trips</h1>
+ 
+ <!-- <div class="buttonType">
+
+    <button (click)="filterByType(-1)">All Trips</button>
+    <button *ngFor="let type of travelTypeList"(click)="filterByType(type.CodeType!)">
+         {{type.NameType}}
+    </button> 
+</div>  -->
+
+
+<div class="container">
+    <div class="center">
+      <button (click)="filterByType(-1)"
+      class="btn">
+        <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+          <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+          <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+        </svg>
+        <span>All Trips</span>
+      </button> 
+      <button *ngFor="let type of travelTypeList"(click)="filterByType(type.CodeType!)"
+      class="btn">
+        <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+          <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+          <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+        </svg>
+        <span> {{type.NameType}}</span>
+      </button>
+    </div>
+  </div>
+
+
+
+
+<!-- flip-card-container -->
+<section >
+
+    <div *ngFor="let trip of tripList"
+     class="flip-card-container" style="--hue: 220">
+    <div class="flip-card">
+  
+      <div *ngIf="trip.CodeType == CodeChoose || CodeChoose == -1" (click)="filterByType(trip.CodeTrip!)"
+       class="card-front">
+        <figure >
+          <div class="img-bg"></div>
+          <!-- <img src="../../../assets/images/b.jpg" alt="Brohm Lake"> -->
+          <h2 style="color: white;">{{trip.Destination}}</h2>
+          <p style="color:white;">{{trip.DateTrip}}</p>
+        </figure>
+
+      </div>
+  
+      <div *ngIf="trip.CodeType == CodeChoose || CodeChoose == -1" class="card-back">
+        <figure>
+          <div class="img-bg"></div>
+          <!-- <img src="../../../assets/images/b.jpg" alt="Brohm Lake"> -->
+        </figure>
+  
+        <button (click)="showDetails(trip!)">Book</button>
+        <!-- <button routerLink="./detailes/{{trip.CodeTrip}}">Book</button> -->
+
+
+        <div class="design-container">
+          <span class="design design--1"></span>
+          <span class="design design--2"></span>
+          <span class="design design--3"></span>
+          <span class="design design--4"></span>
+          <span class="design design--5"></span>
+          <span class="design design--6"></span>
+          <span class="design design--7"></span>
+          <span class="design design--8"></span>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+ </section>
+     

@@ -1,0 +1,12 @@
+<div class="user-list-container">
+    <div *ngFor="let user of userList" class="user">
+      <div class="user-info">
+        <h2>First Name: {{ user.FirstName }}</h2>
+        <h2>Last Name: {{ user.LastName }}</h2>
+        <p>Phone: {{ user.Phone }}</p>
+        <p>Email: {{ user.Email }}</p>
+        <p>First Aid: {{ user.FirstAid ? 'Yes' : 'No' }}</p>
+      </div>
+    </div>
+  </div>
+  

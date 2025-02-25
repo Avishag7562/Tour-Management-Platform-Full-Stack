@@ -1,0 +1,134 @@
+<!-- Sign Up Form -->
+<div class="left" *ngIf="showForm">
+  <h1>Sign up</h1>
+  <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+
+    <!-- firstName -->
+    <input type="text" [(ngModel)]="newU.FirstName" formControlName="firstName" placeholder="firstName" name="x" /><br>
+    <div
+      *ngIf="signupForm.controls['firstName'].invalid &&
+            (signupForm.controls['firstName'].dirty || signupForm.controls['firstName'].touched)">
+      <p *ngIf="signupForm.controls['firstName'].errors!['required']">שדה חובה</p>
+      <p *ngIf="signupForm.controls['firstName'].errors!['minlength']">מינימום 5 תווים</p>
+      <p *ngIf="signupForm.controls['firstName'].errors!['pattern']">חייב להכיל אותיות</p>
+    </div>
+
+    <!-- lastName -->
+    <input type="text" [(ngModel)]="newU.LastName" formControlName="lastName" placeholder="lastName" name="x" />
+    <div
+      *ngIf="signupForm.controls['lastName'].invalid &&
+            (signupForm.controls['lastName'].dirty || signupForm.controls['lastName'].touched)">
+      <p *ngIf="signupForm.controls['lastName'].errors!['required']">שדה חובה</p>
+      <p *ngIf="signupForm.controls['lastName'].errors!['minlength']">מינימום תווים</p>
+      <p *ngIf="signupForm.controls['lastName'].errors!['pattern']">חייב להכיל אותיות</p>
+    </div>
+
+    <!-- email -->
+    <input type="text" [(ngModel)]="newU.Email" formControlName="email" placeholder="E-mail" />
+    <div
+      *ngIf="signupForm.controls['email'].invalid &&
+            (signupForm.controls['email'].dirty || signupForm.controls['email'].touched)">
+      <p *ngIf="signupForm.controls['email'].errors!['required']">שדה חובה</p>
+      <p *ngIf="signupForm.controls['email'].errors!['minlength']">מינימום תווים</p>
+      <p *ngIf="signupForm.controls['email'].errors!['pattern']">חייב להכיל אותיות</p>
+    </div>
+
+    <!-- password -->
+    <input type="password" [(ngModel)]="newU.EntryPassword" formControlName="password" placeholder="Password" />
+    <div
+      *ngIf="signupForm.controls['password'].invalid &&
+            (signupForm.controls['password'].dirty || signupForm.controls['password'].touched)">
+      <p *ngIf="signupForm.controls['password'].errors!['required']">שדה חובה</p>
+      <p *ngIf="signupForm.controls['password'].errors!['minlength']">מינימום 6 תווים</p>
+      <p *ngIf="signupForm.controls['password'].errors!['maxlength']">מקסימום 10 תווים</p>
+      <p *ngIf="signupForm.controls['password'].errors!['pattern']">חייב להכיל אותיות</p>
+    </div>
+
+    <input type="submit" [disabled]="signupForm.invalid" name="signup_submit" value="Sign me up" />
+  </form>
+</div>
+
+
+<!-- Log In Form -->
+<div class="right"*ngIf="showForm ==false">
+  <h1>Log in</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="logIn()">
+
+    <!-- email -->
+    <input type="text" [(ngModel)]="newU.Email" formControlName="email" placeholder="E-mail" />
+    <div
+      *ngIf="loginForm.controls['email'].invalid &&
+            (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)">
+      <p *ngIf="loginForm.controls['email'].errors!['required']">שדה חובה</p>
+      <p *ngIf="loginForm.controls['email'].errors!['minlength']">מינימום תווים</p>
+      <p *ngIf="loginForm.controls['email'].errors!['pattern']">חייב להכיל אותיות</p>
+    </div>
+
+    <!-- password -->
+    <input type="password" [(ngModel)]="newU.EntryPassword" formControlName="password" placeholder="Password" />
+    <div
+      *ngIf="loginForm.controls['password'].invalid &&
+            (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+      <p *ngIf="loginForm.controls['password'].errors!['required']">שדה חובה</p>
+      <p *ngIf="loginForm.controls['password'].errors!['minlength']">מינימום 6 תווים</p>
+      <p *ngIf="loginForm.controls['password'].errors!['maxlength']">מקסימום 10 תווים</p>
+      <p *ngIf="loginForm.controls['password'].errors!['pattern']">חייב להכיל אותיות</p>
+    </div>
+
+    <input type="submit" [disabled]="!loginForm.valid" name="Login_submit" value="Log in" />
+  </form>
+</div>
+<div class="or" (click)="toggleLoginForm()" >OR</div>
+
+
+
+<!-- update -->
+<div class="left" *ngIf="update">
+  <h1>Sign up</h1>
+  <form [formGroup]="updateForm" (ngSubmit)="update">
+
+    <!-- firstName -->
+    <input type="text"  formControlName="firstName" placeholder={{userSer.currentUser!.FirstName}} name="x" /><br>
+    <div
+      *ngIf="signupForm.controls['firstName'].invalid &&
+            (signupForm.controls['firstName'].dirty || signupForm.controls['firstName'].touched)">
+      <p *ngIf="signupForm.controls['firstName'].errors!['required']">שדה חובה</p>
+      <p *ngIf="signupForm.controls['firstName'].errors!['minlength']">מינימום 5 תווים</p>
+      <p *ngIf="signupForm.controls['firstName'].errors!['pattern']">חייב להכיל אותיות</p>
+    </div>
+
+    <!-- lastName -->
+    <input type="text" [(ngModel)]="userSer.currentUser!.LastName" formControlName="lastName" placeholder="lastName" name="x" />
+    <div
+      *ngIf="signupForm.controls['lastName'].invalid &&
+            (signupForm.controls['lastName'].dirty || signupForm.controls['lastName'].touched)">
+      <p *ngIf="signupForm.controls['lastName'].errors!['required']">שדה חובה</p>
+      <p *ngIf="signupForm.controls['lastName'].errors!['minlength']">מינימום תווים</p>
+      <p *ngIf="signupForm.controls['lastName'].errors!['pattern']">חייב להכיל אותיות</p>
+    </div>
+
+    <!-- email -->
+    <input type="text" [(ngModel)]="userSer.currentUser!.Email" formControlName="email" placeholder="E-mail" />
+    <div
+      *ngIf="signupForm.controls['email'].invalid &&
+            (signupForm.controls['email'].dirty || signupForm.controls['email'].touched)">
+      <p *ngIf="signupForm.controls['email'].errors!['required']">שדה חובה</p>
+      <p *ngIf="signupForm.controls['email'].errors!['minlength']">מינימום תווים</p>
+      <p *ngIf="signupForm.controls['email'].errors!['pattern']">חייב להכיל אותיות</p>
+    </div>
+
+    <!-- password -->
+    <input type="password" [(ngModel)]="userSer.currentUser!.EntryPassword" formControlName="password" placeholder="Password" />
+    <div
+      *ngIf="signupForm.controls['password'].invalid &&
+            (signupForm.controls['password'].dirty || signupForm.controls['password'].touched)">
+      <p *ngIf="signupForm.controls['password'].errors!['required']">שדה חובה</p>
+      <p *ngIf="signupForm.controls['password'].errors!['minlength']">מינימום 6 תווים</p>
+      <p *ngIf="signupForm.controls['password'].errors!['maxlength']">מקסימום 10 תווים</p>
+      <p *ngIf="signupForm.controls['password'].errors!['pattern']">חייב להכיל אותיות</p>
+    </div>
+
+
+    <input type="submit" [disabled]="updateForm.invalid" name="updateForm" value="update me" />
+  </form>
+</div>
